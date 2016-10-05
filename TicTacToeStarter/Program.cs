@@ -12,19 +12,20 @@ namespace TicTacToeStarter
         static string[] board = { " ", " ", " ",
                                   " ", " ", " ",
                                   " ", " ", " " };
+        static int counter = 0;
+
         static void Main(string[] args)
         {
             Console.WriteLine("> Let's play a game.");
             PrintBoard();
-
             Play();
-            PrintBoard();
+            
             Console.ReadLine();
         }
 
         static void Play()
         {
-            int counter = 0;
+            
 
             Console.WriteLine("> Enter a spot. \"x,y\"");
             char[] delim = { ',' };
@@ -34,12 +35,15 @@ namespace TicTacToeStarter
             int index = GetIndex(x, y);
             checkSpace(index);
             board[index] = "X";
-            
+            PrintBoard();
             checkWin();
+            counter++;
             computerTurn();
+            checkCatscratch();
+            Console.WriteLine(counter);
             Play();
             
-            counter++;
+            
              
         }
 
@@ -59,30 +63,51 @@ namespace TicTacToeStarter
 
         static void checkSpace(int i)
         {
-
-
-            if (board[i] == "X")
+            if (board[i] == "X" || board[i] == "O")
             {
-                Console.WriteLine("Try again");
-                Play();
+                if (counter % 2 == 0)
+                {
+                    Console.WriteLine("Try again");
+                    Play();
+                }
+                else
+                {
+                    computerTurn();
+                }
             }
-            else if(board[i] == "O") {
-
-            }
-           
         }
-        static void checkCatscratch(int counter)
+        static void checkCatscratch()
         {
-            if (counter == 9) { }
+            if (counter == 9) {
+                Console.WriteLine("Cat Scratch");
+                boardReset();
+            }
         }
         static void checkWin()
         {
-            if (board[0] == board[1] && board[2]==board[1] && board[0] != " ")
+            if (board[0] == board[1] && board[2] == board[1] && board[0] != " " ||
+                board[0] == board[3] && board[0] == board[6] && board[0] != " " ||
+                board[0] == board[4] && board[0] == board[8] && board[0] != " " ||
+                board[3] == board[4] && board[3] == board[5] && board[3] != " " ||
+                board[6] == board[7] && board[6] == board[8] && board[6] != " " ||
+                board[6] == board[4] && board[6] == board[2] && board[6] != " " ||
+                board[4] == board[1] && board[7] == board[1] && board[7] != " " ||
+                board[2] == board[8] && board[2] == board[5] && board[8] != " ")
             {
-                Console.WriteLine("You Win");
+                if (counter % 2 == 0)
+                {
+                    Console.WriteLine("You Win");
+
+                }
+                else {
+                    Console.WriteLine("Computer Wins");
+                      }
+
+
                 boardReset();
                 PrintBoard();
-            } 
+            }
+            
 
         }
         static void boardReset()
@@ -90,6 +115,7 @@ namespace TicTacToeStarter
             for(int i = 0; i<9; i++)
             {
                 board[i] = " ";
+                counter = 0;
             }
         }
 
@@ -100,10 +126,8 @@ namespace TicTacToeStarter
             checkSpace(randInRange);
             board[randInRange] = "O";
             PrintBoard();
-            
-
-
-        }
+            counter++;
+         }
         
 
 
