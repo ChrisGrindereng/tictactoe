@@ -6,7 +6,7 @@
 
 - Victory is achieved when either the computer or player is a able to get 3 spaces on the board in a row. 
 
-- If victory can not be achieved in a game then the game will end in a "Cat Scratch"
+- If victory can not be achieved in a game then the game will end in a "Cat Scratch."
 
 - The player has the option of playing a new game or exiting the application at the end of each game
 
