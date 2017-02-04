@@ -20,11 +20,11 @@ C# ASP.NET, minimax algorithm
 ###Challenges Faced & Solutions Used: 
 The biggest challenge in a tic tac toe game is setting up the AI. For this, I implemented an algorithm works to calculate the best possible move the computer can make. It calculates if a winning move in available and if so makes that move. 
 
-<img src=”./Screenshots/tictactoe_winningmove.png”/>
+<img src="Screenshots/tictactoe_winningmove.png"/>
 
 If not the computer picks a spot on the board base on the available positions on the array.
 
-<img src=”./Screenshots/tictactoe_computermove”/>
+<img src="Screenshots/tictactoe_computermove.png"/>
 
 ###Error Handling and Troubleshooting:
 My primary resource for trouble shooting in this project were the built-in tools in Visual Studio. The ability to set break points and then view the values of variables at various set break points allowed me to see what was going on as the computer was running through different scenarios. 
