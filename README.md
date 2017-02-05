@@ -17,7 +17,7 @@ C# ASP.NET
 
 - At the end of each game the player has the option of playing a new game or exiting the application at the end of each game.
 
-###Challenges Faced & Solutions Used: 
+###Challenges Faced and Solutions Used: 
 The biggest challenge in a tic tac toe game is setting up the AI. For this, I implemented an algorithm works to calculate the best possible move the computer can make. It calculates if a winning move is available and if so makes that move. 
 
 <img src="Screenshots/tictactoe_winningmove.png"/>
